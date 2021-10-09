@@ -1,0 +1,30 @@
+.blog-website{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.blog-box{
+    border: 2px grey solid;
+    min-width:400px;
+    margin: 50px;
+    font-size: 20px;
+    text-align: left;
+    border-radius: 15px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    background-color: rgb(235, 118, 97);
+    box-shadow: 12px 12px 2px 1px grey;
+}
+p{
+    color: white;
+    margin: 5px;
+}
+.fa-edit{
+    color: blue;
+}
+span{
+    margin: 10px;
+}
+.fa-trash-alt{
+color: red;
+}

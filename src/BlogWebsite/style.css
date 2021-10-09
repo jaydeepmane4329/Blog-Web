@@ -1,0 +1,13 @@
+h1{
+    text-align: center;
+    margin-top: 50px;
+}
+
+.blog{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 50%;
+    margin: auto;
+}
+
