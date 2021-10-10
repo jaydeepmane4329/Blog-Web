@@ -1,7 +1,6 @@
 import firebaseDb from './firebaseConfig';
 import {useState,useEffect} from 'react';
 import BlogData from './blogData';
-import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 import './style.css';
 
 
@@ -22,14 +21,14 @@ const [currentId,setCurrentId] = useState('')
 
 
 useEffect(() => {
-    if(currentId ===''){
+    if(currentId === ''){
         setInputText({
             ...intialValues
         })
     }else{
         setInputText(blogData[currentId])
     }
-},[])
+},[currentId,blogData])
 
 useEffect(() => {
       firebaseDb.child('blogs').on('value',snapShot => {
@@ -49,11 +48,14 @@ function handleChange(event){
 
 function addOrEdit(blogs){
     if(currentId === ''){
+        setInputText('')
     firebaseDb.child('blogs').push(
         blogs,
         err => {
             if(err){
                 console.log(err)
+            }else{
+                setCurrentId('')
             }
     })
 }else{
@@ -62,6 +64,8 @@ function addOrEdit(blogs){
         err => {
             if(err){
                 console.log(err)
+            }else{
+                setCurrentId('')
             }
         }
     )
